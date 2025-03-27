@@ -1,32 +1,22 @@
-﻿<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Body Crazy Curvy Wavy</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>AR.js GPS Model</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
 </head>
-<body>
-    <H2>Body Crazy Curvy Wavy</H2>
-    <model-viewer src="Lisa_BCCW.glb"
-                  ios-src="Lisa_BCCW.usdz"
-                  alt="Lisa_BCCW"
-                  ar
-                  auto-rotate
-                  camera-controls
-                  ar-modes="webxr scene-viewer quick-look"
-                  environment-image="neutral">
-    </model-viewer>
-    <script>async function checkARCoreCompatibility() {
-            const modelViewer = document.getElementById('model-viewer');
-            const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-            if (!isARCoreSupported) {
-                modelViewer.removeAttribute('ar');
-                modelViewer.removeAttribute('ar-modes');
-                alert('Your device is not compatible with AR features. You can still view the 3D model.');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);</script>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam;">
+        <!-- GPS Entity mit Modell -->
+        <a-entity 
+            gps-entity-place="latitude: 53.556457; longitude: 9.970007" 
+            gltf-model="Lisa_BCCW.glb" 
+            scale="2 2 2"
+            rotation="0 180 0">
+        </a-entity>
+        
+        <!-- Kamera -->
+        <a-camera gps-camera rotation-reader></a-camera>
+    </a-scene>
 </body>
 </html>
