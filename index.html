@@ -24,14 +24,14 @@
       color: white;
       font-weight: bold;
       text-shadow: 2px 2px 4px black;
-      font-size: 2em;
+      font-size: 1.5em; /* kleiner gemacht */
       margin-bottom: 20px;
     }
     model-viewer {
       display: block;
       margin: 20px auto;
-      width: 70vw; /* vorher 60vw → jetzt größer */
-      height: 70vh; /* vorher 60vh → jetzt größer */
+      width: 70vw;
+      height: 70vh;
     }
     p {
       text-align: center;
@@ -39,20 +39,23 @@
       font-size: 1.5em;
       color: black;
       max-width: 800px;
-      margin-top: 40px; /* vorher 20px → jetzt mehr Abstand */
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <h2>Body Crazy Curvy Wavy</h2>
-  <model-viewer src="Lisa_BCCW.glb"
-                ios-src="Lisa_BCCW.usdz"
-                alt="Lisa_BCCW"
-                ar
-                auto-rotate
-                camera-controls
-                ar-modes="webxr scene-viewer quick-look"
-                environment-image="neutral">
+  <model-viewer 
+    src="Lisa_BCCW.glb"
+    ios-src="Lisa_BCCW.usdz"
+    alt="Lisa_BCCW"
+    ar
+    auto-rotate
+    camera-controls
+    camera-orbit="0deg 90deg 1m"
+    field-of-view="30deg"
+    ar-modes="webxr scene-viewer quick-look"
+    environment-image="neutral">
   </model-viewer>
   <p>
     A 3D scan of me in motion forms the body of my digital self. Its skin is composed of a collection of screenshots from the Apple Photos album, where facial recognition has identified me as a person.<br><br>
